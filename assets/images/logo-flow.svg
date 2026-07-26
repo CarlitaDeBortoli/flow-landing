@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90" width="300" height="90">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#885BFD"/>
+      <stop offset="55%" stop-color="#6FA8F5"/>
+      <stop offset="100%" stop-color="#78DEE8"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="60" font-family="'Museo Moderno', Poppins, sans-serif" font-weight="700" font-size="56" fill="url(#lg)">flow</text>
+</svg>
