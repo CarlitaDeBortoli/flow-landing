@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
-  <rect width="600" height="400" fill="#ffffff"/>
-  <line x1="60" y1="340" x2="560" y2="340" stroke="#e5e0f5" stroke-width="2"/>
-  <line x1="60" y1="40" x2="60" y2="340" stroke="#e5e0f5" stroke-width="2"/>
-  <polyline points="60,300 140,280 220,250 300,210 380,160 460,110 540,50"
-            fill="none" stroke="#78DEE8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="chart-line"/>
-  <circle cx="540" cy="50" r="9" fill="#612FA1"/>
-  <text x="300" y="30" font-family="Poppins, sans-serif" font-size="18" fill="#612FA1" text-anchor="middle" font-weight="600">Crecimiento de tu ahorro</text>
-</svg>

@@ -85,7 +85,7 @@
       </nav>
 
       <a href="index.html" class="logo-center" aria-label="Flow — Inicio">
-        <img src="assets/images/logo-flow.png" alt="Flow" width="140" height="42">
+        <img src="assets/images/logo-flow-transparent.png" alt="Flow" width="160" height="82">
       </a>
 
       <div class="header-ctas">
@@ -111,20 +111,32 @@
             <a href="#" class="btn btn-cta">Únete a Flow</a>
             <a href="#beneficios" class="btn btn-outline">Conocer más</a>
           </div>
-        </div>
-        <div class="hero-qr">
-          <img src="assets/images/qr-app.svg" alt="Código QR para descargar la app Flow" width="150" height="150">
-          <p>Descargar App</p>
+          <div class="qr-card hero-qr">
+            <img src="assets/images/qr-app.svg" alt="Código QR para descargar la app Flow" width="56" height="56">
+            <p>Descargar<br>App</p>
+          </div>
         </div>
       </div>
-      <span class="hero-risk-badge" aria-label="Indicador de riesgo del producto: 1 de 6">Riesgo del producto: 1/6</span>
     </section>
+
+    <!-- ============ AVISO DE RIESGO DEL PRODUCTO ============ -->
+    <div class="risk-disclosure-wrap">
+      <div class="container">
+        <div class="risk-disclosure">
+          <div class="risk-number" aria-hidden="true">1/6</div>
+          <div class="risk-divider" aria-hidden="true"></div>
+          <p class="risk-text">Este número es indicativo del riesgo del producto, siendo 1/6 indicativo de menor riesgo y 6/6 de mayor riesgo.</p>
+          <div class="risk-divider" aria-hidden="true"></div>
+          <p class="risk-text">BBVA está adherido al Fondo de Garantía de Depósitos de Entidades de Crédito de España. La cantidad máxima garantizada es de 100.000€ por la totalidad de depósitos constituidos en BBVA por persona.</p>
+        </div>
+      </div>
+    </div>
 
     <!-- ============ BENEFICIOS ============ -->
     <section id="beneficios">
       <div class="container split">
         <div class="split-media anim-left">
-          <img src="assets/images/beneficios-amigos.png" alt="Grupo de amigos disfrutando y consultando la app Flow" loading="lazy" width="1200" height="1000">
+          <img src="assets/images/beneficios-amigos-2.png" alt="Grupo de amigos disfrutando y consultando la app Flow" loading="lazy" width="1122" height="1402">
         </div>
         <div class="split-text anim-right">
           <h2 class="section-title">Tu dinero, a tu ritmo</h2>
@@ -160,7 +172,7 @@
           </div>
         </div>
         <div class="split-media anim-right">
-          <img src="assets/images/growth-chart.svg" alt="Gráfica de crecimiento de un fondo de ahorro" loading="lazy" width="600" height="400">
+          <img src="assets/images/simulacion-ahorro.png" alt="Simulación de una meta de ahorro en la app Flow" loading="lazy" width="1122" height="1402">
         </div>
       </div>
     </section>
@@ -169,7 +181,7 @@
     <section id="app-flow">
       <div class="container split">
         <div class="split-media anim-left">
-          <img src="assets/images/app-genz.png" alt="Persona joven consultando la app Flow desde su móvil en la calle" loading="lazy" width="1200" height="1200">
+          <img src="assets/images/app-genz-2.png" alt="Persona joven consultando la app Flow desde su móvil en la calle" loading="lazy" width="1122" height="1402">
         </div>
         <div class="split-text anim-right">
           <div class="app-box">
@@ -247,10 +259,16 @@
 
     <!-- ============ CTA FINAL ============ -->
     <section class="final-cta">
-      <div class="container anim-fade">
-        <h2>¿Listo para empezar?</h2>
-        <p>Descarga Flow y empieza a gestionar tu dinero a tu ritmo, hoy mismo.</p>
-        <a href="#hero" class="btn btn-cta">Únete a Flow</a>
+      <div class="container anim-fade final-cta-inner">
+        <div class="qr-card final-cta-qr">
+          <img src="assets/images/qr-app.svg" alt="Código QR para descargar la app Flow" width="74" height="74">
+          <p>Descargar<br>App</p>
+        </div>
+        <div class="final-cta-text">
+          <h2>¿Listo para empezar?</h2>
+          <p>Descarga Flow y empieza a gestionar tu dinero a tu ritmo, hoy mismo.</p>
+          <a href="#hero" class="btn btn-cta">Únete a Flow</a>
+        </div>
       </div>
     </section>
 
@@ -261,7 +279,7 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <span class="footer-logo">flow</span>
+          <img src="assets/images/logo-flow-transparent.png" alt="Flow" width="130" height="67" style="height:44px; width:auto;">
           <p style="max-width:280px; margin-top:12px; font-size:.88rem;">Tu dinero, a tu ritmo. Una app de BBVA.</p>
         </div>
         <div class="footer-links">

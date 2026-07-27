@@ -156,10 +156,9 @@ p { margin: 0 0 1em; }
 
 .logo-center { justify-self: center; }
 .logo-center img {
-  height: 34px;
-  background: #fff;
-  border-radius: 8px;
-  padding: 4px 10px;
+  height: 42px;
+  width: auto;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.35));
 }
 
 .header-ctas { justify-self: end; display: flex; gap: 12px; align-items: center; }
@@ -202,12 +201,10 @@ p { margin: 0 0 1em; }
 .hero-inner {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1.3fr auto;
-  align-items: center;
-  gap: 48px;
+  display: block;
   width: 100%;
 }
+.hero-text { max-width: 600px; }
 .hero-text h1 {
   font-size: clamp(2.4rem, 5vw, 4rem);
   text-transform: uppercase;
@@ -223,27 +220,72 @@ p { margin: 0 0 1em; }
 }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
-.hero-qr {
-  background: rgba(255,255,255,.08);
+/* Tarjeta QR reutilizable (hero compacta / CTA final mediana) */
+.qr-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,.1);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255,255,255,.25);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  text-align: center;
-  min-width: 220px;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
 }
-.hero-qr img { width: 150px; height: 150px; margin: 0 auto 12px; border-radius: 10px; }
-.hero-qr p { margin: 0; font-weight: 600; letter-spacing: .5px; }
-.hero-risk-badge {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  z-index: 2;
-  background: rgba(0,0,0,.45);
-  color: #fff;
-  font-size: .75rem;
-  padding: 6px 12px;
-  border-radius: 999px;
+.qr-card img { border-radius: 8px; flex-shrink: 0; }
+.qr-card p { margin: 0; font-weight: 600; letter-spacing: .3px; font-size: .85rem; line-height: 1.2; }
+
+.hero-qr {
+  margin-top: 20px;
+}
+.hero-qr img { width: 56px; height: 56px; }
+
+.final-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.final-cta-qr img { width: 74px; height: 74px; }
+.final-cta-text { text-align: left; }
+.final-cta-text h2, .final-cta-text p { text-align: left; }
+
+/* -----------------------------------------
+   Aviso de riesgo del producto (normativa española)
+----------------------------------------- */
+.risk-disclosure-wrap { padding: 32px 0; }
+.risk-disclosure {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  border: 1.5px solid #d9d9d9;
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  flex-wrap: wrap;
+}
+.risk-number {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #a3a3a3;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.risk-divider {
+  width: 1px;
+  align-self: stretch;
+  background: #e2e2e2;
+  flex-shrink: 0;
+}
+.risk-text {
+  margin: 0;
+  font-size: .85rem;
+  color: #333;
+  flex: 1 1 260px;
+}
+@media (max-width: 700px) {
+  .risk-divider { display: none; }
+  .risk-disclosure { flex-direction: column; align-items: flex-start; }
 }
 
 /* -----------------------------------------
@@ -267,6 +309,9 @@ section { padding: 100px 0; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(97,47,161,.15);
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
 /* Animaciones de entrada lateral */
@@ -494,6 +539,129 @@ section { padding: 100px 0; }
 .cookie-pref-row:last-child { border-bottom: none; }
 
 /* -----------------------------------------
+   Productos — video showcase + tarjetas (estilo Revolut)
+----------------------------------------- */
+.products-hero { text-align: center; padding-bottom: 40px; }
+.products-hero .section-title { color: var(--color-primary); }
+
+.video-showcase {
+  max-width: 880px;
+  margin: 0 auto 36px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(97,47,161,.18);
+}
+.video-showcase video { width: 100%; display: block; }
+
+.products-cta { text-align: center; margin-bottom: 20px; }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+.product-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+  box-shadow: 0 20px 50px rgba(97,47,161,.08);
+  display: flex;
+  flex-direction: column;
+}
+.product-card h3 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 4px; }
+.product-card .product-tagline { font-size: 1.05rem; color: var(--color-secondary); font-weight: 600; margin-bottom: 16px; }
+.product-card .product-desc { color: var(--color-text-muted); }
+.product-card .price-tag {
+  display: inline-block;
+  background: var(--color-cta);
+  color: #16323a;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+.product-card .includes-label { font-weight: 600; color: var(--color-primary); margin-bottom: 12px; }
+.product-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+.product-card ul li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--color-text);
+  font-size: .95rem;
+}
+.product-card .product-footer {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+@media (max-width: 900px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+
+/* -----------------------------------------
+   Aprende con Flow — cursos en 3 columnas
+----------------------------------------- */
+.heading-logo { display: inline-block; height: 0.85em; width: auto; vertical-align: -0.12em; margin-left: 8px; }
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.course-card {
+  padding: 44px 32px;
+  border-right: 1px solid var(--color-border);
+}
+.course-card:last-child { border-right: none; }
+.course-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+  box-shadow: 0 16px 40px rgba(97,47,161,.12);
+}
+.course-card h3 { color: var(--color-primary); font-size: 1.25rem; margin-bottom: 6px; }
+.course-card .course-lead { color: var(--color-secondary); font-weight: 600; margin-bottom: 18px; }
+.course-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.course-card ul li {
+  position: relative;
+  padding-left: 18px;
+  font-size: .9rem;
+  color: var(--color-text-muted);
+}
+.course-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cta-dark);
+}
+@media (max-width: 900px) {
+  .courses-grid { grid-template-columns: 1fr; border-bottom: none; }
+  .course-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .course-card:last-child { border-bottom: none; }
+}
+
+/* -----------------------------------------
    Legal pages
 ----------------------------------------- */
 .legal-page { padding: 60px 0 100px; }
@@ -515,11 +683,11 @@ section { padding: 100px 0; }
    Responsive
 ----------------------------------------- */
 @media (max-width: 960px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-qr { justify-self: start; }
   .split { grid-template-columns: 1fr; gap: 36px; }
   .split.reverse .split-media { order: 1; }
   .split.reverse .split-text { order: 2; }
+  .final-cta-inner { flex-direction: column; text-align: center; }
+  .final-cta-text, .final-cta-text h2, .final-cta-text p { text-align: center; }
 }
 
 @media (max-width: 800px) {
