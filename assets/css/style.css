@@ -785,6 +785,13 @@ section { padding: 100px 0; }
 ----------------------------------------- */
 .heading-logo { display: inline-block; height: 0.85em; width: auto; vertical-align: -0.12em; margin-left: 8px; }
 .heading-logo-lg { height: 1.35em; vertical-align: -0.28em; }
+.heading-logo-text {
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-cta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 .courses-grid {
   display: grid;
