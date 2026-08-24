@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=10">
+  <link rel="stylesheet" href="assets/css/style.css?v=16">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -35,16 +35,14 @@
   </header>
 
   <main id="main-content">
-    <section class="products-hero" style="padding-top:80px; padding-bottom:0;">
-      <div class="container">
+    <section class="products-hero-full">
+      <video class="products-hero-video" autoplay loop muted playsinline disablePictureInPicture aria-label="Video promocional de las tarjetas Flow">
+        <source src="assets/tarjetas-flow.mp4" type="video/mp4">
+      </video>
+      <div class="products-hero-overlay" aria-hidden="true"></div>
+      <div class="container products-hero-text">
         <h1 class="section-title">Nuestros productos</h1>
-        <p style="max-width:620px; margin:0 auto 40px; color:var(--color-text-muted); font-size:1.05rem;">Todo lo que necesitas para manejar tu dinero, ahorrar y comprar con confianza, en una sola tarjeta.</p>
-
-        <div class="video-showcase anim-fade">
-          <video autoplay loop muted playsinline disablePictureInPicture aria-label="Video promocional de las tarjetas Flow">
-            <source src="assets/tarjetas-flow.mp4" type="video/mp4">
-          </video>
-        </div>
+        <p>Todo lo que necesitas para manejar tu dinero, ahorrar y comprar con confianza, en una sola tarjeta.</p>
       </div>
     </section>
 
@@ -113,15 +111,11 @@
                   <p class="includes-label">¿Qué incluye?</p>
                   <ul>
                     <li><span aria-hidden="true">✓</span> Cashback aumentado en las categorías que tú eliges</li>
-                    <li><span aria-hidden="true">✓</span> Divide tus compras en cuotas directamente desde la app</li>
                     <li><span aria-hidden="true">✓</span> Límite de crédito que puede crecer contigo</li>
                     <li><span aria-hidden="true">✓</span> Beneficios por pagar siempre a tiempo</li>
                     <li><span aria-hidden="true">✓</span> Ofertas y descuentos exclusivos para clientes Flow Credit</li>
-                    <li><span aria-hidden="true">✓</span> Cashback extra en marcas seleccionadas</li>
                     <li><span aria-hidden="true">✓</span> Acceso anticipado a promociones y experiencias</li>
                     <li><span aria-hidden="true">✓</span> Opciones de pago flexibles para compras grandes</li>
-                    <li><span aria-hidden="true">✓</span> Control total de tu crédito desde la app</li>
-                    <li><span aria-hidden="true">✓</span> Sin papeleo para gestionar tus compras y pagos</li>
                   </ul>
                   <p class="product-footer">Más que una tarjeta de crédito. Una forma más inteligente de comprar, disfrutar y construir tu futuro financiero.</p>
                   <a href="index.html#hero" class="btn btn-cta btn-heartbeat">La quiero</a>
