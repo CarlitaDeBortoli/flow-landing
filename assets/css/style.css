@@ -145,6 +145,7 @@ p { margin: 0 0 1em; }
 
 .main-nav { justify-self: start; }
 .main-nav ul { display: flex; gap: 28px; list-style: none; }
+.nav-mobile-only { display: none; }
 .main-nav a {
   font-size: 0.95rem;
   font-weight: 500;
@@ -924,6 +925,8 @@ section { padding: 100px 0; }
   .logo-center { justify-self: center; }
   .header-ctas { justify-self: end; }
   .header-ctas .btn:first-child { display: none; }
+  .nav-mobile-only { display: list-item; border-top: 1px solid rgba(255, 255, 255, .25); margin-top: 8px; padding-top: 16px; }
+  .hero-qr-corner { display: none; }
   section { padding: 64px 0; }
   .footer-top { flex-direction: column; }
 }
