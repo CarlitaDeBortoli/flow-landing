@@ -779,38 +779,56 @@ section { padding: 100px 0; }
 /* -----------------------------------------
    Contador animado de clientes
 ----------------------------------------- */
-.counter-section { padding: 20px 0 100px; }
+.counter-section { padding: 40px 0 100px; }
 .counter-block {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding: 0 40px;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+.counter-number-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.counter-live-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-cta);
+  animation: counterPulse 1.6s infinite;
+}
+@keyframes counterPulse {
+  0% { box-shadow: 0 0 0 0 rgba(120,222,232,.65); }
+  70% { box-shadow: 0 0 0 16px rgba(120,222,232,0); }
+  100% { box-shadow: 0 0 0 0 rgba(120,222,232,0); }
 }
 .counter-number {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  color: var(--color-secondary);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 4rem);
   line-height: 1;
   white-space: nowrap;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-cta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .counter-label {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 48px;
+  font-weight: 600;
+  font-size: 1.05rem;
   text-transform: uppercase;
-  color: var(--color-text);
-  line-height: 1;
+  letter-spacing: .5px;
+  color: var(--color-text-muted);
   margin: 0;
-  text-align: right;
 }
 @media (max-width: 700px) {
-  .counter-number, .counter-label { font-size: 32px; }
-  .counter-block { padding: 0 24px; }
-  .counter-label { text-align: left; }
+  .counter-number { font-size: clamp(2.1rem, 10vw, 2.8rem); }
+  .counter-label { font-size: .85rem; }
 }
 
 /* -----------------------------------------
