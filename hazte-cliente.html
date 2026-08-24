@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazte cliente | Flow</title>
+  <meta name="description" content="Abre tu cuenta Flow en minutos: datos personales, verificación de identidad y confirmación.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=23">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a href="productos.html">Nuestros productos</a></li>
+          <li><a href="aprende.html">Aprende con Flow</a></li>
+        </ul>
+      </nav>
+      <a href="index.html" class="logo-center" aria-label="Flow — Inicio">
+        <img src="assets/images/logo-flow-transparent.png" alt="Flow" width="160" height="82">
+      </a>
+      <div class="header-ctas">
+        <a href="#" class="btn btn-outline">Acceso clientes</a>
+        <a href="hazte-cliente.html" class="btn btn-cta">Únete a Flow</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="onboarding-section">
+      <div class="container onboarding-container">
+
+        <h1 class="onboarding-title">Hazte cliente de Flow</h1>
+        <p class="onboarding-subtitle">Abre tu cuenta en minutos. Solo necesitamos algunos datos.</p>
+
+        <!-- ============ BARRA DE PROGRESO ============ -->
+        <ol class="progress-bar" data-progress aria-label="Progreso de la solicitud">
+          <li class="progress-step is-active" data-step-indicator="1">
+            <span class="progress-dot">1</span>
+            <span class="progress-label">Datos personales</span>
+          </li>
+          <li class="progress-step" data-step-indicator="2">
+            <span class="progress-dot">2</span>
+            <span class="progress-label">Verificación DNI</span>
+          </li>
+          <li class="progress-step" data-step-indicator="3">
+            <span class="progress-dot">3</span>
+            <span class="progress-label">Verificación facial</span>
+          </li>
+          <li class="progress-step" data-step-indicator="4">
+            <span class="progress-dot">4</span>
+            <span class="progress-label">Confirmación</span>
+          </li>
+        </ol>
+
+        <form id="onboarding-form" novalidate>
+
+          <!-- ============ PASO 1 — DATOS PERSONALES ============ -->
+          <div class="onboarding-step is-active" data-step-panel="1">
+            <h2 class="step-heading">Datos personales</h2>
+            <p class="step-intro">Cuéntanos quién eres para empezar tu solicitud.</p>
+
+            <div class="form-grid">
+              <div class="form-field form-field-full">
+                <label for="full-name">Nombre completo</label>
+                <input type="text" id="full-name" name="full-name" required autocomplete="name">
+                <span class="field-error" data-error-for="full-name">Ingresa tu nombre completo.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="birthdate">Fecha de nacimiento</label>
+                <input type="date" id="birthdate" name="birthdate" required autocomplete="bday">
+                <span class="field-error" data-error-for="birthdate">Ingresa tu fecha de nacimiento.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="dni">DNI / NIE</label>
+                <input type="text" id="dni" name="dni" placeholder="12345678A" required pattern="^[0-9]{8}[A-Za-z]$|^[XYZxyz][0-9]{7}[A-Za-z]$">
+                <span class="field-error" data-error-for="dni">Formato no válido. Ej: 12345678A o X1234567A.</span>
+              </div>
+
+              <div class="form-field form-field-full">
+                <label for="address">Dirección completa</label>
+                <input type="text" id="address" name="address" required autocomplete="street-address">
+                <span class="field-error" data-error-for="address">Ingresa tu dirección.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="postal-code">Código postal</label>
+                <input type="text" id="postal-code" name="postal-code" required inputmode="numeric" autocomplete="postal-code">
+                <span class="field-error" data-error-for="postal-code">Ingresa tu código postal.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="city">Ciudad</label>
+                <input type="text" id="city" name="city" required autocomplete="address-level2">
+                <span class="field-error" data-error-for="city">Ingresa tu ciudad.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+                <span class="field-error" data-error-for="email">Ingresa un email válido.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Teléfono móvil</label>
+                <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" required autocomplete="tel">
+                <span class="field-error" data-error-for="phone">Ingresa un teléfono válido.</span>
+              </div>
+            </div>
+
+            <div class="step-actions step-actions-end">
+              <button type="button" class="btn btn-cta" data-next>Continuar →</button>
+            </div>
+          </div>
+
+          <!-- ============ PASO 2 — VERIFICACIÓN DNI ============ -->
+          <div class="onboarding-step" data-step-panel="2">
+            <h2 class="step-heading">Verificación de identidad</h2>
+            <p class="step-intro">Sube una foto clara de ambas caras de tu DNI. Asegúrate de que sea legible y sin reflejos.</p>
+
+            <div class="upload-grid">
+              <div class="upload-field">
+                <label class="upload-field-label" for="dni-front">Anverso del DNI</label>
+                <label class="upload-dropzone" for="dni-front" data-dropzone-for="dni-front">
+                  <img class="upload-preview" data-preview-for="dni-front" alt="Vista previa del anverso del DNI" hidden>
+                  <span class="upload-placeholder" data-placeholder-for="dni-front">📄 Subir foto del anverso</span>
+                </label>
+                <input type="file" id="dni-front" name="dni-front" accept="image/*" required class="visually-hidden">
+                <span class="field-error" data-error-for="dni-front">Sube una foto del anverso de tu DNI.</span>
+              </div>
+
+              <div class="upload-field">
+                <label class="upload-field-label" for="dni-back">Reverso del DNI</label>
+                <label class="upload-dropzone" for="dni-back" data-dropzone-for="dni-back">
+                  <img class="upload-preview" data-preview-for="dni-back" alt="Vista previa del reverso del DNI" hidden>
+                  <span class="upload-placeholder" data-placeholder-for="dni-back">📄 Subir foto del reverso</span>
+                </label>
+                <input type="file" id="dni-back" name="dni-back" accept="image/*" required class="visually-hidden">
+                <span class="field-error" data-error-for="dni-back">Sube una foto del reverso de tu DNI.</span>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost-purple" data-prev>← Atrás</button>
+              <button type="button" class="btn btn-cta" data-next>Continuar →</button>
+            </div>
+          </div>
+
+          <!-- ============ PASO 3 — VERIFICACIÓN BIOMÉTRICA ============ -->
+          <div class="onboarding-step" data-step-panel="3">
+            <h2 class="step-heading">Verificación facial</h2>
+            <p class="step-intro">Ahora necesitamos verificar que eres tú. Activa la cámara y sigue las instrucciones.</p>
+
+            <div class="camera-wrap">
+              <div class="camera-oval-frame" data-camera-frame>
+                <video class="camera-video" data-camera-video autoplay playsinline muted></video>
+                <canvas class="camera-canvas" data-camera-canvas hidden></canvas>
+                <img class="camera-captured" data-camera-captured alt="Foto capturada para verificación facial" hidden>
+              </div>
+              <p class="camera-instruction" data-camera-instruction>Centra tu cara en el óvalo y mantente quieto unos segundos.</p>
+              <p class="camera-fallback" data-camera-fallback hidden>Tu dispositivo no tiene cámara disponible. Puedes completar este paso desde tu móvil.</p>
+
+              <div class="camera-actions">
+                <button type="button" class="btn btn-ghost-purple" data-camera-start>Activar cámara</button>
+                <button type="button" class="btn btn-cta" data-camera-capture hidden>Capturar foto</button>
+                <button type="button" class="btn btn-ghost-purple" data-camera-retry hidden>Repetir foto</button>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost-purple" data-prev>← Atrás</button>
+              <button type="button" class="btn btn-cta" data-next>Continuar →</button>
+            </div>
+          </div>
+
+          <!-- ============ PASO 4 — CONFIRMACIÓN ============ -->
+          <div class="onboarding-step" data-step-panel="4">
+            <div class="success-check" aria-hidden="true">
+              <svg viewBox="0 0 90 90" width="90" height="90">
+                <circle class="success-check-circle" cx="45" cy="45" r="40" />
+                <path class="success-check-mark" d="M27 46 L40 59 L64 33" />
+              </svg>
+            </div>
+            <h2 class="step-heading step-heading-center">¡Bienvenido/a a Flow!</h2>
+            <p class="step-intro step-intro-center">Tu solicitud ha sido recibida. En menos de 24 horas recibirás un email con los próximos pasos para activar tu cuenta.</p>
+
+            <div class="step-actions step-actions-center">
+              <a href="index.html" class="btn btn-cta">Volver al inicio</a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Flow by BBVA. Todos los derechos reservados.</span>
+        <nav aria-label="Enlaces legales">
+          <a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="aviso-legal.html">Aviso legal</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/onboarding.js?v=1"></script>
+</body>
+</html>
