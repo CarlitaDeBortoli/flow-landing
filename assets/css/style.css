@@ -777,6 +777,34 @@ section { padding: 100px 0; }
 }
 
 /* -----------------------------------------
+   Contador animado de clientes
+----------------------------------------- */
+.counter-section { padding: 20px 0 100px; }
+.counter-block {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.counter-number {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: var(--color-secondary);
+  line-height: 1;
+  white-space: nowrap;
+}
+.counter-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin: 0;
+}
+@media (max-width: 480px) {
+  .counter-number { font-size: 36px; }
+}
+
+/* -----------------------------------------
    Legal pages
 ----------------------------------------- */
 .legal-page { padding: 60px 0 100px; }

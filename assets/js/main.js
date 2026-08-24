@@ -11,8 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initSimulator();
   initCarousel();
+  initClientCounter();
   initCookieConsent();
 });
+
+/* ---------- Contador animado de clientes ---------- */
+function initClientCounter() {
+  const el = document.getElementById('client-counter');
+  if (!el) return;
+
+  let value = parseInt(el.getAttribute('data-counter-target'), 10) || 0;
+  el.textContent = value.toLocaleString('es-ES');
+
+  setInterval(() => {
+    value += Math.floor(Math.random() * 3) + 1; // sube de a poco, sin parar
+    el.textContent = value.toLocaleString('es-ES');
+  }, 150);
+}
 
 /* ---------- Header con sombra al hacer scroll ---------- */
 function initHeaderScroll() {
