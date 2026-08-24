@@ -223,21 +223,12 @@ p { margin: 0 0 1em; }
 /* Tarjeta QR reutilizable (hero compacta / CTA final mediana) */
 .qr-card {
   display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(255,255,255,.1);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: var(--radius-md);
-  padding: 12px 18px;
+  flex-shrink: 0;
 }
-.qr-card img { border-radius: 8px; flex-shrink: 0; }
-.qr-card p { margin: 0; font-weight: 600; letter-spacing: .3px; font-size: .85rem; line-height: 1.2; }
+.qr-card img { display: block; filter: drop-shadow(0 12px 30px rgba(0,0,0,.25)); }
 
-.hero-qr {
-  margin-top: 20px;
-}
-.hero-qr img { width: 56px; height: 56px; }
+.hero-qr { margin-top: 20px; }
+.hero-qr img { width: 132px; height: 150px; }
 
 .final-cta-inner {
   display: flex;
@@ -247,7 +238,7 @@ p { margin: 0 0 1em; }
   flex-wrap: wrap;
   text-align: left;
 }
-.final-cta-qr img { width: 74px; height: 74px; }
+.final-cta-qr img { width: 150px; height: 170px; }
 .final-cta-text { text-align: left; }
 .final-cta-text h2, .final-cta-text p { text-align: left; }
 
