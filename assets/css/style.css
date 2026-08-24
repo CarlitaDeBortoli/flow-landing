@@ -702,7 +702,11 @@ section { padding: 100px 0; }
   max-width: 680px;
 }
 @media (max-width: 700px) {
-  .products-hero-full { padding-top: 28px; }
+  /* Hero más bajo en móvil: el video es 16:9, así que una caja muy alta
+     recorta demasiado a los costados y solo deja ver la tarjeta central */
+  .products-hero-full { min-height: 55vh; padding-top: 14px; }
+  .products-title { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .products-hero-overlay { background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,.85) 14%, rgba(255,255,255,0) 34%); }
 }
 
 .video-showcase {
