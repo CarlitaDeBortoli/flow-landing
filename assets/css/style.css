@@ -438,6 +438,10 @@ section { padding: 100px 0; }
 .carousel-arrow-prev { left: 8px; }
 .carousel-arrow-next { right: 8px; }
 
+/* Tarjetas de producto: son mucho más altas que la imagen, así que las
+   flechas se posicionan sobre la imagen (arriba), no a media tarjeta */
+.carousel--products .carousel-arrow { top: 150px; }
+
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
 .carousel-dots button {
   width: 8px;
@@ -668,22 +672,21 @@ section { padding: 100px 0; }
 }
 .video-showcase video { width: 100%; display: block; }
 
-.products-cta { text-align: center; margin-bottom: 20px; }
-
-.products-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 60px;
-}
 .product-card {
   background: #fff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 44px;
   box-shadow: 0 20px 50px rgba(97,47,161,.08);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+.product-card-body {
+  padding: 36px 40px 44px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .product-card h3 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 4px; }
 .product-card .product-tagline { font-size: 1.05rem; color: var(--color-secondary); font-weight: 600; margin-bottom: 16px; }
@@ -695,7 +698,7 @@ section { padding: 100px 0; }
   font-weight: 700;
   padding: 8px 20px;
   border-radius: 999px;
-  margin-bottom: 24px;
+  margin: 16px 0 24px;
   width: fit-content;
 }
 .product-card .includes-label { font-weight: 600; color: var(--color-primary); margin-bottom: 12px; }
@@ -715,11 +718,20 @@ section { padding: 100px 0; }
 }
 .product-card .product-footer {
   margin-top: auto;
+  margin-bottom: 24px;
   font-weight: 600;
   color: var(--color-secondary);
 }
-@media (max-width: 900px) {
-  .products-grid { grid-template-columns: 1fr; }
+.product-card .btn { align-self: flex-start; }
+
+/* Botón "La quiero" con efecto latido */
+.btn-heartbeat { animation: heartbeat 1s ease-in-out infinite; }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-heartbeat { animation: none; }
 }
 
 /* -----------------------------------------
