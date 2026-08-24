@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initFAQ();
   initSimulator();
+  initCarousel();
   initCookieConsent();
 });
 
@@ -79,6 +80,60 @@ function initFAQ() {
       }
     });
   });
+}
+
+/* ---------- Carrusel de 3 slides (simulador) ---------- */
+function initCarousel() {
+  const carousel = document.querySelector('[data-carousel]');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('[data-carousel-track]');
+  const slides = Array.from(track.children);
+  const prevBtn = carousel.querySelector('[data-carousel-prev]');
+  const nextBtn = carousel.querySelector('[data-carousel-next]');
+  const dotsWrap = carousel.querySelector('[data-carousel-dots]');
+  let index = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', 'Ir al slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function render() {
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    render();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+
+  // Swipe táctil (solo relevante en el layout de 1 slide de móvil/tablet)
+  let startX = 0;
+  let isDragging = false;
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const deltaX = e.changedTouches[0].clientX - startX;
+    if (Math.abs(deltaX) > 40) {
+      goTo(index + (deltaX < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  render();
+  window.addEventListener('resize', render);
 }
 
 /* ---------- Simulador de ahorro ---------- */

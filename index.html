@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
 
   <!-- ============ Google Consent Mode v2 (por defecto denegado) ============ -->
   <script>
@@ -101,8 +101,12 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
-      <img class="hero-bg" src="assets/images/hero-influencer.png" alt="" role="presentation">
+      <img class="hero-bg" src="assets/images/aitana-flow.jpeg" alt="" role="presentation">
       <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="qr-block hero-qr-corner">
+        <img src="assets/images/qr-black.svg" alt="Código QR para descargar la app Flow" width="140" height="140">
+        <span>Baja la app aquí</span>
+      </div>
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Empieza a invertir hoy</h1>
@@ -110,9 +114,6 @@
           <div class="hero-actions">
             <a href="#" class="btn btn-cta">Únete a Flow</a>
             <a href="#beneficios" class="btn btn-outline">Conocer más</a>
-          </div>
-          <div class="qr-card hero-qr">
-            <img src="assets/images/qr-app.svg" alt="Código QR para descargar la app Flow" width="132" height="150">
           </div>
         </div>
       </div>
@@ -135,7 +136,7 @@
     <section id="beneficios">
       <div class="container split">
         <div class="split-media anim-left">
-          <img src="assets/images/beneficios-amigos-2.png" alt="Grupo de amigos disfrutando y consultando la app Flow" loading="lazy" width="1122" height="1402">
+          <img src="assets/images/beneficios-bbva.jpeg" alt="Grupo de amigos disfrutando y consultando la app Flow" loading="lazy" width="2048" height="2048">
         </div>
         <div class="split-text anim-right">
           <h2 class="section-title">Tu dinero, a tu ritmo</h2>
@@ -150,28 +151,59 @@
       </div>
     </section>
 
-    <!-- ============ SIMULADOR ============ -->
+    <!-- ============ SIMULADOR (carrusel de 3 slides) ============ -->
     <section class="simulator-section" id="simulador">
-      <div class="container split reverse">
-        <div class="split-text simulator-cta anim-left">
-          <h2 class="section-title">Simula tu fondo de ahorro hoy</h2>
-          <p>Descubre en segundos cuánto podrías ahorrar con Flow, sin compromisos ni letra pequeña.</p>
-          <button type="button" class="btn btn-ghost-purple" data-simulator-open>Calcular ahora</button>
+      <div class="container">
+        <div class="carousel" data-carousel>
+          <button type="button" class="carousel-arrow carousel-arrow-prev" data-carousel-prev aria-label="Slide anterior">&#8249;</button>
 
-          <div class="simulator-widget" aria-live="polite">
-            <div class="simulator-field">
-              <label for="sim-amount">Aporte mensual: <span id="sim-amount-value">100 €</span></label>
-              <input type="range" id="sim-amount" min="10" max="1000" step="10" value="100">
-            </div>
-            <div class="simulator-field">
-              <label for="sim-months">Plazo: <span id="sim-months-value">12 meses</span></label>
-              <input type="range" id="sim-months" min="1" max="60" step="1" value="12">
-            </div>
-            <p class="simulator-result" id="sim-result"></p>
+          <div class="carousel-viewport">
+          <div class="carousel-track" data-carousel-track>
+
+            <article class="carousel-slide">
+              <img src="assets/images/simulador-hoy.jpeg" alt="Simulación de una meta de ahorro en la app Flow" loading="lazy" width="2048" height="2048">
+              <div class="carousel-slide-content">
+                <h3>Simula tu fondo de ahorro</h3>
+                <p>Crea objetivos de ahorro independientes para cada meta: tu viaje a Japón, tu fondo de emergencia o ese capricho que tienes en mente. Cada objetivo, a tu ritmo.</p>
+                <button type="button" class="btn btn-ghost-purple" data-simulator-open>Calcular ahora</button>
+              </div>
+            </article>
+
+            <article class="carousel-slide">
+              <img src="assets/images/credito-hoy.jpeg" alt="Simulación de crédito en la app Flow" loading="lazy" width="2048" height="2048">
+              <div class="carousel-slide-content">
+                <h3>Simula tu crédito hoy</h3>
+                <p>Descubre cuánto puedes pedir prestado, a qué plazo y con qué cuota mensual. Sin sorpresas, sin letra pequeña.</p>
+                <a href="#" class="btn btn-ghost-purple">Calcular ahora</a>
+              </div>
+            </article>
+
+            <article class="carousel-slide">
+              <img src="assets/images/billetera-flow.jpeg" alt="Organizador de gastos mensuales en la app Flow" loading="lazy" width="2048" height="2048">
+              <div class="carousel-slide-content">
+                <h3>Tu mes, tu Flow</h3>
+                <p>Tu organizador de gastos mensual. Descubre adónde va tu dinero y cuánto podrías ahorrar sin dejar de disfrutar.</p>
+                <a href="#" class="btn btn-ghost-purple">Explorar</a>
+              </div>
+            </article>
+
           </div>
+          </div>
+
+          <button type="button" class="carousel-arrow carousel-arrow-next" data-carousel-next aria-label="Siguiente slide">&#8250;</button>
+          <div class="carousel-dots" data-carousel-dots></div>
         </div>
-        <div class="split-media anim-right">
-          <img src="assets/images/simulacion-ahorro.png" alt="Simulación de una meta de ahorro en la app Flow" loading="lazy" width="1122" height="1402">
+
+        <div class="simulator-widget" aria-live="polite">
+          <div class="simulator-field">
+            <label for="sim-amount">Aporte mensual: <span id="sim-amount-value">100 €</span></label>
+            <input type="range" id="sim-amount" min="10" max="1000" step="10" value="100">
+          </div>
+          <div class="simulator-field">
+            <label for="sim-months">Plazo: <span id="sim-months-value">12 meses</span></label>
+            <input type="range" id="sim-months" min="1" max="60" step="1" value="12">
+          </div>
+          <p class="simulator-result" id="sim-result"></p>
         </div>
       </div>
     </section>
@@ -180,7 +212,7 @@
     <section id="app-flow">
       <div class="container split">
         <div class="split-media anim-left">
-          <img src="assets/images/app-genz-2.png" alt="Persona joven consultando la app Flow desde su móvil en la calle" loading="lazy" width="1122" height="1402">
+          <img src="assets/images/aitana-app.jpeg" alt="Persona joven consultando la app Flow desde su móvil en la calle" loading="lazy" style="aspect-ratio:1/1; height:auto;">
         </div>
         <div class="split-text anim-right">
           <div class="app-box">
@@ -259,13 +291,14 @@
     <!-- ============ CTA FINAL ============ -->
     <section class="final-cta">
       <div class="container anim-fade final-cta-inner">
-        <div class="qr-card final-cta-qr">
-          <img src="assets/images/qr-app.svg" alt="Código QR para descargar la app Flow" width="150" height="170">
+        <div class="qr-block final-cta-qr">
+          <img src="assets/images/qr-black.svg" alt="Código QR para descargar la app Flow" width="150" height="150">
+          <span>Baja la app aquí</span>
         </div>
         <div class="final-cta-text">
           <h2>¿Listo para empezar?</h2>
           <p>Descarga Flow y empieza a gestionar tu dinero a tu ritmo, hoy mismo.</p>
-          <a href="#hero" class="btn btn-cta">Únete a Flow</a>
+          <a href="#hero" class="btn btn-cta btn-cta-lg">Únete a Flow</a>
         </div>
       </div>
     </section>
@@ -277,8 +310,8 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <img src="assets/images/logo-flow-transparent.png" alt="Flow" width="130" height="67" style="height:44px; width:auto;">
-          <p style="max-width:280px; margin-top:12px; font-size:.88rem;">Tu dinero, a tu ritmo. Una app de BBVA.</p>
+          <img src="assets/images/logo-flow-transparent.png" alt="Flow" width="130" height="67" style="height:53px; width:auto;">
+          <p style="max-width:280px; margin-top:12px; font-size:1rem;">Tu dinero, a tu ritmo. Una app de BBVA.</p>
         </div>
         <div class="footer-links">
           <div class="footer-links-col">
@@ -349,6 +382,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
 </body>
 </html>
