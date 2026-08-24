@@ -1138,3 +1138,21 @@ section { padding: 100px 0; }
 .step-actions { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
 .step-actions-end { justify-content: flex-end; }
 .step-actions-center { justify-content: center; }
+
+/* -----------------------------------------
+   Acceso clientes — login
+----------------------------------------- */
+.login-section { padding: 70px 0 100px; display: flex; justify-content: center; }
+.login-container { display: flex; justify-content: center; }
+.login-card { width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 44px 36px; box-shadow: 0 20px 50px -30px rgba(43, 35, 51, .25); }
+.login-title { color: var(--color-primary); font-size: clamp(1.6rem, 4vw, 2rem); text-align: center; margin-bottom: 8px; }
+.login-subtitle { text-align: center; color: var(--color-text-muted); margin-bottom: 32px; }
+.login-forgot { display: inline-block; font-size: .85rem; color: var(--color-secondary); font-weight: 600; margin: -6px 0 26px; }
+.login-forgot:hover { text-decoration: underline; }
+.login-submit { width: 100%; }
+.login-signup { text-align: center; color: var(--color-text-muted); font-size: .9rem; margin: 26px 0 0; }
+.login-signup a { color: var(--color-primary); font-weight: 600; }
+.login-signup a:hover { text-decoration: underline; }
+@media (max-width: 480px) {
+  .login-card { padding: 34px 22px; }
+}

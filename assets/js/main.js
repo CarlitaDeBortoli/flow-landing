@@ -13,7 +13,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initCarousel();
   initClientCounter();
   initCookieConsent();
+  initAutoplayVideos();
 });
+
+/* ---------- Fallback de autoplay para videos en loop (hero) ---------- */
+function initAutoplayVideos() {
+  const videos = document.querySelectorAll('video[autoplay]');
+  if (!videos.length) return;
+
+  videos.forEach(video => {
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay();
+    video.addEventListener('canplay', tryPlay, { once: true });
+    video.addEventListener('loadeddata', tryPlay, { once: true });
+
+    const resumeOnInteraction = () => {
+      tryPlay();
+      ['click', 'touchstart', 'scroll'].forEach(evt =>
+        document.removeEventListener(evt, resumeOnInteraction)
+      );
+    };
+    ['click', 'touchstart', 'scroll'].forEach(evt =>
+      document.addEventListener(evt, resumeOnInteraction, { once: true, passive: true })
+    );
+  });
+}
 
 /* ---------- Contador animado de clientes ---------- */
 function initClientCounter() {
