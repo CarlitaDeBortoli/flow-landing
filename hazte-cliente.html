@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=32">
+  <link rel="stylesheet" href="assets/css/style.css?v=33">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -217,7 +217,42 @@
     </div>
   </footer>
 
+  <!-- ============ CHATBOT FLOTANTE ============ -->
+  <div class="chatbot-widget" data-chatbot>
+    <div class="chatbot-window" data-chatbot-window role="dialog" aria-label="Chat con Flow Assistant" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <span class="chatbot-avatar">
+            <img src="assets/images/logo-flow-transparent.png" alt="" width="24" height="24">
+          </span>
+          <div class="chatbot-header-text">
+            <strong>Flow Assistant</strong>
+            <span class="chatbot-status"><span class="chatbot-status-dot" aria-hidden="true"></span>En línea</span>
+          </div>
+        </div>
+        <button type="button" class="chatbot-close" data-chatbot-close aria-label="Cerrar chat">✕</button>
+      </div>
+      <div class="chatbot-messages" data-chatbot-messages></div>
+      <form class="chatbot-input-row" data-chatbot-form>
+        <input type="text" data-chatbot-input placeholder="Escribe tu mensaje..." autocomplete="off" aria-label="Escribe tu mensaje">
+        <button type="submit" class="chatbot-send" aria-label="Enviar mensaje">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <button type="button" class="chatbot-toggle" data-chatbot-toggle aria-label="Abrir chat con Flow Assistant" aria-expanded="false">
+      <svg class="chatbot-icon-chat" viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+        <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2z"/>
+      </svg>
+      <svg class="chatbot-icon-close" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <path fill="currentColor" d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
   <script src="assets/js/main.js?v=4"></script>
   <script src="assets/js/onboarding.js?v=1"></script>
+  <script src="assets/js/chatbot.js?v=3"></script>
 </body>
 </html>
