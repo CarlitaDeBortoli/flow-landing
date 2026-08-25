@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=35">
+  <link rel="stylesheet" href="assets/css/style.css?v=36">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -70,12 +70,12 @@
             <p class="step-intro">Selecciona el estilo que más te representa. Podrás personalizarlo en el siguiente paso.</p>
 
             <div class="design-options">
-              <label class="design-option" data-design-option="aurora">
-                <input type="radio" name="base-design" value="aurora" class="visually-hidden" required>
-                <div class="demo-card demo-card--aurora">
+              <label class="design-option" data-design-option="prisma">
+                <input type="radio" name="base-design" value="prisma" class="visually-hidden" required>
+                <div class="demo-card demo-card--prisma">
                   <div class="demo-card-top">
                     <div class="demo-card-chip" aria-hidden="true"></div>
-                    <span class="demo-card-edition">Edición Aurora</span>
+                    <span class="demo-card-edition">Edición Prisma</span>
                   </div>
                   <div class="demo-card-number">•••• •••• •••• 1234</div>
                   <div class="demo-card-bottom">
@@ -85,12 +85,12 @@
                 </div>
               </label>
 
-              <label class="design-option" data-design-option="noche">
-                <input type="radio" name="base-design" value="noche" class="visually-hidden">
-                <div class="demo-card demo-card--noche">
+              <label class="design-option" data-design-option="neon">
+                <input type="radio" name="base-design" value="neon" class="visually-hidden">
+                <div class="demo-card demo-card--neon">
                   <div class="demo-card-top">
                     <div class="demo-card-chip" aria-hidden="true"></div>
-                    <span class="demo-card-edition">Edición Noche</span>
+                    <span class="demo-card-edition">Edición Neón</span>
                   </div>
                   <div class="demo-card-number">•••• •••• •••• 1234</div>
                   <div class="demo-card-bottom">
@@ -100,14 +100,13 @@
                 </div>
               </label>
 
-              <label class="design-option" data-design-option="silver">
-                <input type="radio" name="base-design" value="silver" class="visually-hidden">
-                <div class="demo-card demo-card--silver">
+              <label class="design-option" data-design-option="cromo">
+                <input type="radio" name="base-design" value="cromo" class="visually-hidden">
+                <div class="demo-card demo-card--cromo">
                   <div class="demo-card-top">
                     <div class="demo-card-chip" aria-hidden="true"></div>
-                    <span class="demo-card-edition">Edición Silver</span>
+                    <span class="demo-card-edition">Edición Cromo</span>
                   </div>
-                  <span class="demo-card-logo">Flow</span>
                   <div class="demo-card-number">•••• •••• •••• 1234</div>
                   <div class="demo-card-bottom">
                     <span class="demo-card-holder">CARDHOLDER</span>
@@ -116,12 +115,16 @@
                 </div>
               </label>
 
-              <label class="design-option" data-design-option="botanica">
-                <input type="radio" name="base-design" value="botanica" class="visually-hidden">
-                <div class="demo-card demo-card--botanica">
+              <label class="design-option" data-design-option="custom">
+                <input type="radio" name="base-design" value="custom" class="visually-hidden">
+                <div class="demo-card demo-card--custom">
+                  <div class="demo-card-custom-placeholder">
+                    <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M24 6a2 2 0 0 1 2 2v14h14a2 2 0 1 1 0 4H26v14a2 2 0 1 1-4 0V26H8a2 2 0 1 1 0-4h14V8a2 2 0 0 1 2-2z"/></svg>
+                    <span>Crea la tuya desde cero</span>
+                  </div>
                   <div class="demo-card-top">
                     <div class="demo-card-chip" aria-hidden="true"></div>
-                    <span class="demo-card-edition">Edición Botánica</span>
+                    <span class="demo-card-edition">Tu diseño</span>
                   </div>
                   <div class="demo-card-number">•••• •••• •••• 1234</div>
                   <div class="demo-card-bottom">
@@ -152,12 +155,13 @@
                 </div>
 
                 <div class="form-field">
-                  <label for="card-image">¿Quieres subir tu propia imagen? (opcional)</label>
+                  <label for="card-image" data-image-field-label>¿Quieres subir tu propia imagen? (opcional)</label>
                   <label class="upload-dropzone upload-dropzone-compact" for="card-image" data-dropzone-for="card-image">
                     <img class="upload-preview" data-preview-for="card-image" alt="Vista previa de tu imagen" hidden>
                     <span class="upload-placeholder" data-placeholder-for="card-image">🖼️ Subir JPG o PNG</span>
                   </label>
                   <input type="file" id="card-image" name="card-image" accept="image/jpeg,image/png" class="visually-hidden">
+                  <span class="field-error" data-error-for="card-image">Sube una imagen para crear tu diseño desde cero.</span>
                 </div>
 
                 <div class="toggle-row">
@@ -177,12 +181,17 @@
               <div class="customize-preview">
                 <p class="customize-preview-label">Vista previa</p>
                 <div class="demo-card" data-live-preview>
+                  <img class="demo-card-bg-image" data-preview-bg-image alt="" hidden>
+                  <div class="demo-card-bg-scrim" data-preview-bg-scrim hidden></div>
+                  <div class="demo-card-custom-placeholder" data-preview-custom-placeholder hidden>
+                    <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M24 6a2 2 0 0 1 2 2v14h14a2 2 0 1 1 0 4H26v14a2 2 0 1 1-4 0V26H8a2 2 0 1 1 0-4h14V8a2 2 0 0 1 2-2z"/></svg>
+                    <span>Sube tu imagen para comenzar</span>
+                  </div>
                   <div class="demo-card-top">
                     <div class="demo-card-chip" aria-hidden="true"></div>
-                    <span class="demo-card-edition" data-preview-edition>Edición Aurora</span>
+                    <span class="demo-card-edition" data-preview-edition>Edición Prisma</span>
                   </div>
                   <div class="demo-card-meta">
-                    <span class="demo-card-logo" data-preview-logo hidden>Flow</span>
                     <span class="demo-card-initials" data-preview-initials hidden></span>
                   </div>
                   <div class="demo-card-middle">
@@ -210,12 +219,17 @@
 
             <div class="confirm-grid">
               <div class="demo-card" data-summary-preview>
+                <img class="demo-card-bg-image" data-preview-bg-image alt="" hidden>
+                <div class="demo-card-bg-scrim" data-preview-bg-scrim hidden></div>
+                <div class="demo-card-custom-placeholder" data-preview-custom-placeholder hidden>
+                  <svg viewBox="0 0 48 48" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M24 6a2 2 0 0 1 2 2v14h14a2 2 0 1 1 0 4H26v14a2 2 0 1 1-4 0V26H8a2 2 0 1 1 0-4h14V8a2 2 0 0 1 2-2z"/></svg>
+                  <span>Sube tu imagen para comenzar</span>
+                </div>
                 <div class="demo-card-top">
                   <div class="demo-card-chip" aria-hidden="true"></div>
-                  <span class="demo-card-edition" data-preview-edition>Edición Aurora</span>
+                  <span class="demo-card-edition" data-preview-edition>Edición Prisma</span>
                 </div>
                 <div class="demo-card-meta">
-                  <span class="demo-card-logo" data-preview-logo hidden>Flow</span>
                   <span class="demo-card-initials" data-preview-initials hidden></span>
                 </div>
                 <div class="demo-card-middle">
@@ -316,7 +330,7 @@
   </div>
 
   <script src="assets/js/main.js?v=4"></script>
-  <script src="assets/js/card-customizer.js?v=1"></script>
+  <script src="assets/js/card-customizer.js?v=2"></script>
   <script src="assets/js/chatbot.js?v=3"></script>
 </body>
 </html>

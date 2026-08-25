@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.onboarding-container');
 
   const EDITION_LABELS = {
-    aurora: 'Edición Aurora',
-    noche: 'Edición Noche',
-    silver: 'Edición Silver',
-    botanica: 'Edición Botánica',
+    prisma: 'Edición Prisma',
+    neon: 'Edición Neón',
+    cromo: 'Edición Cromo',
+    custom: 'Tu diseño',
   };
 
   const state = {
@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const dot = indicator.querySelector('.progress-dot');
       dot.textContent = n < step ? '✓' : String(n);
     });
-    if (step === 2) applyPreview(document.querySelector('[data-live-preview]'));
+    if (step === 2) {
+      applyPreview(document.querySelector('[data-live-preview]'));
+      updateImageFieldLabel();
+    }
     if (step === 3) {
       applyPreview(document.querySelector('[data-summary-preview]'));
       updateConfirmSummary();
@@ -78,6 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
+  function validateStep2() {
+    if (state.design === 'custom' && !state.imageDataUrl) {
+      showError('card-image', true);
+      return false;
+    }
+    showError('card-image', false);
+    return true;
+  }
+
+  const imageFieldLabel = document.querySelector('[data-image-field-label]');
+  function updateImageFieldLabel() {
+    if (!imageFieldLabel) return;
+    imageFieldLabel.textContent = state.design === 'custom'
+      ? 'Sube tu imagen: será el fondo completo de tu tarjeta'
+      : '¿Quieres subir tu propia imagen? (opcional)';
+  }
+
   /* ---------- Paso 2: personalización ---------- */
   const nameInput = document.getElementById('card-name');
   nameInput.addEventListener('input', () => {
@@ -99,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imagePreview.src = state.imageDataUrl;
       imagePreview.hidden = false;
       if (imagePlaceholder) imagePlaceholder.hidden = true;
+      showError('card-image', false);
       applyPreview(document.querySelector('[data-live-preview]'));
     };
     reader.readAsDataURL(file);
@@ -125,13 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function applyPreview(cardEl) {
     if (!cardEl || !state.design) return;
+    const isCustom = state.design === 'custom';
+    const hasImage = !!state.imageDataUrl;
     cardEl.className = 'demo-card demo-card--' + state.design;
+    cardEl.classList.toggle('has-custom-image', isCustom && hasImage);
 
     const editionEl = cardEl.querySelector('[data-preview-edition]');
     if (editionEl) editionEl.textContent = EDITION_LABELS[state.design];
-
-    const logoEl = cardEl.querySelector('[data-preview-logo]');
-    if (logoEl) logoEl.hidden = state.design !== 'silver';
 
     const nameEl = cardEl.querySelector('[data-preview-name]');
     if (nameEl) nameEl.textContent = state.name || 'CARDHOLDER';
@@ -142,10 +163,23 @@ document.addEventListener('DOMContentLoaded', () => {
       initialsEl.textContent = state.initials;
     }
 
+    const bgImageEl = cardEl.querySelector('[data-preview-bg-image]');
+    const bgScrimEl = cardEl.querySelector('[data-preview-bg-scrim]');
+    const placeholderEl = cardEl.querySelector('[data-preview-custom-placeholder]');
+    if (isCustom) {
+      if (bgImageEl) { bgImageEl.hidden = !hasImage; if (hasImage) bgImageEl.src = state.imageDataUrl; }
+      if (bgScrimEl) bgScrimEl.hidden = !hasImage;
+      if (placeholderEl) placeholderEl.hidden = hasImage;
+    } else {
+      if (bgImageEl) bgImageEl.hidden = true;
+      if (bgScrimEl) bgScrimEl.hidden = true;
+      if (placeholderEl) placeholderEl.hidden = true;
+    }
+
     const imageEl = cardEl.querySelector('[data-preview-image]');
     if (imageEl) {
-      imageEl.hidden = !state.imageDataUrl;
-      if (state.imageDataUrl) imageEl.src = state.imageDataUrl;
+      imageEl.hidden = isCustom || !hasImage;
+      if (hasImage) imageEl.src = state.imageDataUrl;
     }
   }
 
@@ -161,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   form.querySelectorAll('[data-next]').forEach(btn => {
     btn.addEventListener('click', () => {
       if (currentStep === 1 && !validateStep1()) return;
+      if (currentStep === 2 && !validateStep2()) return;
       if (currentStep < TOTAL_STEPS) goToStep(currentStep + 1);
     });
   });

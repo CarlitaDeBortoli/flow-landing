@@ -1403,54 +1403,96 @@ section { padding: 100px 0; }
 .demo-card-bottom { display: flex; align-items: flex-end; justify-content: space-between; position: relative; z-index: 2; }
 .demo-card-holder { font-size: .68rem; font-weight: 600; letter-spacing: .04em; }
 .demo-card-visa { font-style: italic; font-weight: 800; font-size: .95rem; letter-spacing: .02em; }
-.demo-card-logo { position: relative; z-index: 2; font-family: 'Museo Moderno', cursive; font-weight: 700; font-size: 1.1rem; color: var(--color-primary); }
 
-.demo-card--aurora {
-  background:
-    radial-gradient(circle, rgba(255, 255, 255, .55) 1.4px, transparent 1.6px) 0 0 / 16px 16px,
-    linear-gradient(135deg, #ffb5e8, #c3b1e1);
+/* Edición Prisma — holográfica, cambiante */
+.demo-card--prisma {
+  background: linear-gradient(120deg, #612fa1, #885bfd 30%, #78dee8 50%, #c3b1e1 65%, #885bfd 80%, #612fa1);
+  background-size: 300% 300%;
+  animation: prismaShift 7s ease-in-out infinite;
 }
-
-.demo-card--noche {
-  background:
-    repeating-linear-gradient(115deg, transparent, transparent 22px, rgba(136, 91, 253, .3) 22px, rgba(136, 91, 253, .3) 24px),
-    linear-gradient(135deg, #1a1a2e, #16213e);
-}
-.demo-card--noche .demo-card-edition { color: var(--color-cta); }
-
-.demo-card--silver {
-  background:
-    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, .85), transparent 60%),
-    linear-gradient(135deg, #e8e8e8, #c0c0c0);
-  color: var(--color-text);
-}
-
-.demo-card--botanica {
-  background: linear-gradient(135deg, #a8e6cf, var(--color-cta));
-  color: var(--color-text);
-}
-.demo-card--botanica::before {
+.demo-card--prisma::before {
   content: '';
   position: absolute;
-  width: 140px;
-  height: 140px;
-  background: rgba(18, 90, 60, .3);
-  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
-  top: -46px;
-  right: -34px;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .35) 50%, transparent 60%);
   z-index: 1;
+  pointer-events: none;
 }
-.demo-card--botanica::after {
+@keyframes prismaShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-card--prisma { animation: none; }
+}
+
+/* Edición Neón — urbana, dark con líneas neón */
+.demo-card--neon {
+  background: linear-gradient(160deg, #0d0d16, #1a1a2e);
+  box-shadow: 0 14px 30px -14px rgba(43, 35, 51, .4), inset 0 0 0 1px rgba(120, 222, 232, .35), inset 0 0 40px rgba(136, 91, 253, .18);
+}
+.demo-card--neon::before {
   content: '';
   position: absolute;
-  width: 110px;
-  height: 110px;
-  background: rgba(18, 90, 60, .22);
-  border-radius: 45% 55% 60% 40% / 55% 45% 50% 50%;
-  bottom: -34px;
-  left: -24px;
+  inset: 0;
+  background: repeating-linear-gradient(115deg, transparent, transparent 22px, rgba(120, 222, 232, .12) 22px, rgba(120, 222, 232, .12) 24px);
+  z-index: 1;
+  pointer-events: none;
+}
+.demo-card--neon .demo-card-edition { color: var(--color-cta); text-shadow: 0 0 10px rgba(120, 222, 232, .7); }
+.demo-card--neon .demo-card-number { text-shadow: 0 0 8px rgba(136, 91, 253, .6); }
+
+/* Edición Cromo — metálica líquida, efecto Y2K */
+.demo-card--cromo {
+  background: linear-gradient(120deg, #eef0f5 0%, #9aa2b8 25%, #ffffff 45%, #6f7690 62%, #cfd4e0 80%, #ffffff 100%);
+  color: var(--color-text);
+}
+.demo-card--cromo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 42%, rgba(136, 91, 253, .18) 50%, transparent 58%);
+  z-index: 1;
+  pointer-events: none;
+}
+.demo-card--cromo .demo-card-chip { background: linear-gradient(135deg, #f7e29b, #c9a227); }
+
+/* Crea la tuya — sin base, 100% personalizada */
+.demo-card--custom {
+  background: linear-gradient(135deg, #2b2333, #612fa1);
+  box-shadow: 0 14px 30px -14px rgba(43, 35, 51, .4), inset 0 0 0 2px rgba(255, 255, 255, .18);
+}
+.demo-card--custom .demo-card-custom-placeholder {
+  position: absolute;
+  inset: 14px;
+  border: 2px dashed rgba(255, 255, 255, .45);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  color: rgba(255, 255, 255, .85);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 0 16px;
+  z-index: 2;
+}
+.demo-card--custom .demo-card-top,
+.demo-card--custom .demo-card-number,
+.demo-card--custom .demo-card-bottom { opacity: 0; }
+.demo-card-bg-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.demo-card-bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 15, 30, .15), rgba(20, 15, 30, .65));
   z-index: 1;
 }
+.demo-card.has-custom-image .demo-card-custom-placeholder { display: none; }
+.demo-card.has-custom-image .demo-card-top,
+.demo-card.has-custom-image .demo-card-number,
+.demo-card.has-custom-image .demo-card-bottom { opacity: 1; color: #fff; }
 
 @media (max-width: 960px) {
   .card-designs-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1471,7 +1513,6 @@ section { padding: 100px 0; }
 /* -----------------------------------------
    Personalizar tarjeta — wizard
 ----------------------------------------- */
-.demo-card-logo[hidden], .demo-card-initials[hidden], .demo-card-custom-image[hidden] { display: none; }
 .demo-card-meta { display: flex; align-items: center; gap: 10px; position: relative; z-index: 2; }
 .demo-card-middle { display: flex; align-items: center; justify-content: space-between; gap: 10px; position: relative; z-index: 2; }
 .demo-card-custom-image {
