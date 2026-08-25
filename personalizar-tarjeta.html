@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personaliza tu tarjeta | Flow</title>
+  <meta name="description" content="Diseña tu tarjeta Flow: elige un estilo, personalízala con tu nombre e imagen, y confirma tu pedido.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=32">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+          <li><a href="productos.html">Nuestros productos</a></li>
+          <li><a href="aprende.html">Aprende con Flow</a></li>
+          <li><a href="abre-cuenta.html">Abre tu Cuenta Online</a></li>
+          <li class="nav-mobile-only"><a href="acceso-clientes.html">Acceso clientes</a></li>
+        </ul>
+      </nav>
+      <a href="index.html" class="logo-center" aria-label="Flow — Inicio">
+        <img src="assets/images/logo-flow-transparent.png" alt="Flow" width="160" height="82">
+      </a>
+      <div class="header-ctas">
+        <a href="acceso-clientes.html" class="btn btn-outline">Acceso clientes</a>
+        <a href="hazte-cliente.html" class="btn btn-cta">Únete a Flow</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="onboarding-section">
+      <div class="container onboarding-container">
+
+        <h1 class="onboarding-title">Personaliza tu tarjeta</h1>
+        <p class="onboarding-subtitle">Tu nombre, tu estilo, tu Flow — en 4 pasos.</p>
+
+        <ol class="progress-bar" data-progress aria-label="Progreso de la personalización">
+          <li class="progress-step is-active" data-step-indicator="1">
+            <span class="progress-dot">1</span>
+            <span class="progress-label">Elige tu diseño</span>
+          </li>
+          <li class="progress-step" data-step-indicator="2">
+            <span class="progress-dot">2</span>
+            <span class="progress-label">Personaliza</span>
+          </li>
+          <li class="progress-step" data-step-indicator="3">
+            <span class="progress-dot">3</span>
+            <span class="progress-label">Confirma tu pedido</span>
+          </li>
+          <li class="progress-step" data-step-indicator="4">
+            <span class="progress-dot">4</span>
+            <span class="progress-label">Listo</span>
+          </li>
+        </ol>
+
+        <form id="card-customizer-form" novalidate>
+
+          <!-- ============ PASO 1 — ELIGE TU BASE ============ -->
+          <div class="onboarding-step is-active" data-step-panel="1">
+            <h2 class="step-heading">Elige tu diseño base</h2>
+            <p class="step-intro">Selecciona el estilo que más te representa. Podrás personalizarlo en el siguiente paso.</p>
+
+            <div class="design-options">
+              <label class="design-option" data-design-option="aurora">
+                <input type="radio" name="base-design" value="aurora" class="visually-hidden" required>
+                <div class="demo-card demo-card--aurora">
+                  <div class="demo-card-top">
+                    <div class="demo-card-chip" aria-hidden="true"></div>
+                    <span class="demo-card-edition">Edición Aurora</span>
+                  </div>
+                  <div class="demo-card-number">•••• •••• •••• 1234</div>
+                  <div class="demo-card-bottom">
+                    <span class="demo-card-holder">CARDHOLDER</span>
+                    <span class="demo-card-visa">VISA</span>
+                  </div>
+                </div>
+              </label>
+
+              <label class="design-option" data-design-option="noche">
+                <input type="radio" name="base-design" value="noche" class="visually-hidden">
+                <div class="demo-card demo-card--noche">
+                  <div class="demo-card-top">
+                    <div class="demo-card-chip" aria-hidden="true"></div>
+                    <span class="demo-card-edition">Edición Noche</span>
+                  </div>
+                  <div class="demo-card-number">•••• •••• •••• 1234</div>
+                  <div class="demo-card-bottom">
+                    <span class="demo-card-holder">CARDHOLDER</span>
+                    <span class="demo-card-visa">VISA</span>
+                  </div>
+                </div>
+              </label>
+
+              <label class="design-option" data-design-option="silver">
+                <input type="radio" name="base-design" value="silver" class="visually-hidden">
+                <div class="demo-card demo-card--silver">
+                  <div class="demo-card-top">
+                    <div class="demo-card-chip" aria-hidden="true"></div>
+                    <span class="demo-card-edition">Edición Silver</span>
+                  </div>
+                  <span class="demo-card-logo">Flow</span>
+                  <div class="demo-card-number">•••• •••• •••• 1234</div>
+                  <div class="demo-card-bottom">
+                    <span class="demo-card-holder">CARDHOLDER</span>
+                    <span class="demo-card-visa">VISA</span>
+                  </div>
+                </div>
+              </label>
+
+              <label class="design-option" data-design-option="botanica">
+                <input type="radio" name="base-design" value="botanica" class="visually-hidden">
+                <div class="demo-card demo-card--botanica">
+                  <div class="demo-card-top">
+                    <div class="demo-card-chip" aria-hidden="true"></div>
+                    <span class="demo-card-edition">Edición Botánica</span>
+                  </div>
+                  <div class="demo-card-number">•••• •••• •••• 1234</div>
+                  <div class="demo-card-bottom">
+                    <span class="demo-card-holder">CARDHOLDER</span>
+                    <span class="demo-card-visa">VISA</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <span class="field-error" data-error-for="base-design">Elige un diseño para continuar.</span>
+
+            <div class="step-actions step-actions-end">
+              <button type="button" class="btn btn-cta" data-next>Continuar →</button>
+            </div>
+          </div>
+
+          <!-- ============ PASO 2 — PERSONALIZA ============ -->
+          <div class="onboarding-step" data-step-panel="2">
+            <h2 class="step-heading">Personaliza</h2>
+            <p class="step-intro">Dale tu toque personal a la tarjeta.</p>
+
+            <div class="customize-grid">
+              <div class="customize-form">
+                <div class="form-field">
+                  <label for="card-name">Nombre a grabar en la tarjeta</label>
+                  <input type="text" id="card-name" name="card-name" maxlength="22" placeholder="TU NOMBRE">
+                  <span class="field-hint">Máximo 22 caracteres.</span>
+                </div>
+
+                <div class="form-field">
+                  <label for="card-image">¿Quieres subir tu propia imagen? (opcional)</label>
+                  <label class="upload-dropzone upload-dropzone-compact" for="card-image" data-dropzone-for="card-image">
+                    <img class="upload-preview" data-preview-for="card-image" alt="Vista previa de tu imagen" hidden>
+                    <span class="upload-placeholder" data-placeholder-for="card-image">🖼️ Subir JPG o PNG</span>
+                  </label>
+                  <input type="file" id="card-image" name="card-image" accept="image/jpeg,image/png" class="visually-hidden">
+                </div>
+
+                <div class="toggle-row">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="add-initials" class="visually-hidden">
+                    <span class="toggle-track" aria-hidden="true"><span class="toggle-thumb"></span></span>
+                  </label>
+                  <label for="add-initials" class="toggle-label">Añadir iniciales</label>
+                </div>
+
+                <div class="form-field initials-field" data-initials-field hidden>
+                  <label for="card-initials">Iniciales (2-3 letras)</label>
+                  <input type="text" id="card-initials" name="card-initials" maxlength="3" placeholder="AB">
+                </div>
+              </div>
+
+              <div class="customize-preview">
+                <p class="customize-preview-label">Vista previa</p>
+                <div class="demo-card" data-live-preview>
+                  <div class="demo-card-top">
+                    <div class="demo-card-chip" aria-hidden="true"></div>
+                    <span class="demo-card-edition" data-preview-edition>Edición Aurora</span>
+                  </div>
+                  <div class="demo-card-meta">
+                    <span class="demo-card-logo" data-preview-logo hidden>Flow</span>
+                    <span class="demo-card-initials" data-preview-initials hidden></span>
+                  </div>
+                  <div class="demo-card-middle">
+                    <span class="demo-card-number">•••• •••• •••• 1234</span>
+                    <img class="demo-card-custom-image" data-preview-image alt="" hidden>
+                  </div>
+                  <div class="demo-card-bottom">
+                    <span class="demo-card-holder" data-preview-name>CARDHOLDER</span>
+                    <span class="demo-card-visa">VISA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost-purple" data-prev>← Atrás</button>
+              <button type="button" class="btn btn-cta" data-next>Continuar →</button>
+            </div>
+          </div>
+
+          <!-- ============ PASO 3 — CONFIRMA TU PEDIDO ============ -->
+          <div class="onboarding-step" data-step-panel="3">
+            <h2 class="step-heading">Confirma tu pedido</h2>
+            <p class="step-intro">Revisa los detalles antes de confirmar tu diseño.</p>
+
+            <div class="confirm-grid">
+              <div class="demo-card" data-summary-preview>
+                <div class="demo-card-top">
+                  <div class="demo-card-chip" aria-hidden="true"></div>
+                  <span class="demo-card-edition" data-preview-edition>Edición Aurora</span>
+                </div>
+                <div class="demo-card-meta">
+                  <span class="demo-card-logo" data-preview-logo hidden>Flow</span>
+                  <span class="demo-card-initials" data-preview-initials hidden></span>
+                </div>
+                <div class="demo-card-middle">
+                  <span class="demo-card-number">•••• •••• •••• 1234</span>
+                  <img class="demo-card-custom-image" data-preview-image alt="" hidden>
+                </div>
+                <div class="demo-card-bottom">
+                  <span class="demo-card-holder" data-preview-name>CARDHOLDER</span>
+                  <span class="demo-card-visa">VISA</span>
+                </div>
+              </div>
+
+              <div class="confirm-details">
+                <div class="form-field">
+                  <label for="card-type">Tipo de tarjeta a personalizar</label>
+                  <select id="card-type" name="card-type">
+                    <option value="Flow">Flow</option>
+                    <option value="Flow Travel">Flow Travel</option>
+                    <option value="Flow Credit">Flow Credit</option>
+                  </select>
+                </div>
+                <p class="confirm-summary-line"><strong>Nombre grabado:</strong> <span data-summary-name>—</span></p>
+                <p class="confirm-summary-line"><strong>Imagen personalizada:</strong> <span data-summary-image>No</span></p>
+                <p class="confirm-note">Recibirás tu tarjeta personalizada en un plazo de 7-10 días hábiles, sin coste adicional.</p>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost-purple" data-prev>← Atrás</button>
+              <button type="button" class="btn btn-cta" data-next>Confirmar diseño ✓</button>
+            </div>
+          </div>
+
+          <!-- ============ PASO 4 — CONFIRMACIÓN ============ -->
+          <div class="onboarding-step" data-step-panel="4">
+            <div class="success-check" aria-hidden="true">
+              <svg viewBox="0 0 90 90" width="90" height="90">
+                <circle class="success-check-circle" cx="45" cy="45" r="40" />
+                <path class="success-check-mark" d="M27 46 L40 59 L64 33" />
+              </svg>
+            </div>
+            <h2 class="step-heading step-heading-center">¡Tu tarjeta está en camino!</h2>
+            <p class="step-intro step-intro-center">Hemos registrado tu diseño. En breve recibirás un email con los detalles de tu pedido.</p>
+
+            <div class="step-actions step-actions-center">
+              <a href="index.html" class="btn btn-cta">Volver al inicio</a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Flow by BBVA. Todos los derechos reservados.</span>
+        <nav aria-label="Enlaces legales">
+          <a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="aviso-legal.html">Aviso legal</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/card-customizer.js?v=1"></script>
+</body>
+</html>
