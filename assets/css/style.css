@@ -491,7 +491,22 @@ section { padding: 100px 0; }
   color: var(--color-primary);
   text-align: center;
   font-size: 1.1rem;
+  line-height: 1.6;
 }
+.simulator-rate-note { font-size: .82rem; color: var(--color-text-muted); margin: -6px 0 18px; }
+
+.budget-breakdown { display: flex; flex-direction: column; gap: 10px; }
+.budget-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f4f0ff;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+}
+.budget-row-label { font-weight: 600; color: var(--color-text); }
+.budget-row-label small { color: var(--color-text-muted); font-weight: 500; }
+.budget-row-value { font-weight: 700; color: var(--color-primary); font-size: 1.05rem; }
 
 /* -----------------------------------------
    App Flow

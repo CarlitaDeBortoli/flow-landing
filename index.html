@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Museo+Moderno:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/style.css?v=36">
+  <link rel="stylesheet" href="assets/css/style.css?v=37">
 
   <!-- ============ Google Consent Mode v2 (por defecto denegado) ============ -->
   <script>
@@ -164,20 +164,20 @@
           <div class="carousel-track" data-carousel-track>
 
             <article class="carousel-slide">
-              <img src="assets/images/simulador-hoy.jpeg" alt="Simulación de una meta de ahorro en la app Flow" loading="lazy">
+              <img src="assets/images/japon-es.jpg" alt="Simulación de una meta de ahorro para un viaje a Japón en la app Flow" loading="lazy">
               <div class="carousel-slide-content">
                 <h3>Simula tu fondo de ahorro</h3>
                 <p>Crea objetivos de ahorro independientes para cada meta: tu viaje a Japón, tu fondo de emergencia o ese capricho que tienes en mente. Cada objetivo, a tu ritmo.</p>
-                <button type="button" class="btn btn-ghost-purple" data-simulator-open>Calcular ahora</button>
+                <button type="button" class="btn btn-ghost-purple" data-simulator-open="ahorro" aria-expanded="false">Calcular ahora</button>
               </div>
             </article>
 
             <article class="carousel-slide">
-              <img src="assets/images/credito-hoy.jpeg" alt="Simulación de crédito en la app Flow" loading="lazy">
+              <img src="assets/images/credito-flow.jpg" alt="Simulación de crédito en la app Flow" loading="lazy">
               <div class="carousel-slide-content">
                 <h3>Simula tu crédito hoy</h3>
                 <p>Descubre cuánto puedes pedir prestado, a qué plazo y con qué cuota mensual. Sin sorpresas, sin letra pequeña.</p>
-                <a href="#" class="btn btn-ghost-purple">Calcular ahora</a>
+                <button type="button" class="btn btn-ghost-purple" data-simulator-open="credito" aria-expanded="false">Calcular ahora</button>
               </div>
             </article>
 
@@ -186,7 +186,7 @@
               <div class="carousel-slide-content">
                 <h3>Tu mes, tu Flow</h3>
                 <p>Tu organizador de gastos mensual. Descubre adónde va tu dinero y cuánto podrías ahorrar sin dejar de disfrutar.</p>
-                <a href="#" class="btn btn-ghost-purple">Explorar</a>
+                <button type="button" class="btn btn-ghost-purple" data-simulator-open="billetera" aria-expanded="false">Explorar</button>
               </div>
             </article>
 
@@ -197,7 +197,7 @@
           <div class="carousel-dots" data-carousel-dots></div>
         </div>
 
-        <div class="simulator-widget" aria-live="polite">
+        <div class="simulator-widget" data-simulator-panel="ahorro" aria-live="polite">
           <div class="simulator-field">
             <label for="sim-amount">Aporte mensual: <span id="sim-amount-value">100 €</span></label>
             <input type="range" id="sim-amount" min="10" max="1000" step="10" value="100">
@@ -206,7 +206,30 @@
             <label for="sim-months">Plazo: <span id="sim-months-value">12 meses</span></label>
             <input type="range" id="sim-months" min="1" max="60" step="1" value="12">
           </div>
+          <p class="simulator-rate-note">Estimación con 2,80% TAE.</p>
           <p class="simulator-result" id="sim-result"></p>
+        </div>
+
+        <div class="simulator-widget" data-simulator-panel="credito" aria-live="polite">
+          <div class="simulator-field">
+            <label for="credit-amount">Monto a financiar: <span id="credit-amount-value">3.000 €</span></label>
+            <input type="range" id="credit-amount" min="500" max="20000" step="100" value="3000">
+          </div>
+          <div class="simulator-field">
+            <label for="credit-months">Plazo: <span id="credit-months-value">12 meses</span></label>
+            <input type="range" id="credit-months" min="3" max="60" step="1" value="12">
+          </div>
+          <p class="simulator-rate-note">TAE orientativa: 6,90% (sujeta a evaluación de tu perfil).</p>
+          <p class="simulator-result" id="credit-result"></p>
+        </div>
+
+        <div class="simulator-widget" data-simulator-panel="billetera" aria-live="polite">
+          <div class="simulator-field">
+            <label for="budget-income">Ingreso mensual: <span id="budget-income-value">1.500 €</span></label>
+            <input type="range" id="budget-income" min="300" max="6000" step="50" value="1500">
+          </div>
+          <p class="simulator-rate-note">Basado en la regla 50/30/20: necesidades, deseos y ahorro.</p>
+          <div class="budget-breakdown" id="budget-breakdown"></div>
         </div>
       </div>
     </section>
@@ -419,7 +442,7 @@
     </button>
   </div>
 
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=5"></script>
   <script src="assets/js/chatbot.js?v=3"></script>
 </body>
 </html>

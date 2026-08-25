@@ -175,24 +175,47 @@ function initCarousel() {
   window.addEventListener('resize', render);
 }
 
-/* ---------- Simulador de ahorro ---------- */
+/* ---------- Simuladores (ahorro / crédito / billetera) ---------- */
 function initSimulator() {
-  const openBtn = document.querySelector('[data-simulator-open]');
-  const widget = document.querySelector('.simulator-widget');
-  if (!openBtn || !widget) return;
+  const openBtns = Array.from(document.querySelectorAll('[data-simulator-open]'));
+  const panels = Array.from(document.querySelectorAll('[data-simulator-panel]'));
+  if (!openBtns.length || !panels.length) return;
 
-  openBtn.addEventListener('click', () => {
-    widget.classList.toggle('is-open');
-    if (widget.classList.contains('is-open')) {
-      widget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+  function closeAll() {
+    panels.forEach(panel => panel.classList.remove('is-open'));
+    openBtns.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = btn.dataset.simulatorOpen;
+      const panel = panels.find(p => p.dataset.simulatorPanel === name);
+      if (!panel) return;
+
+      const wasOpen = panel.classList.contains('is-open');
+      closeAll();
+      if (!wasOpen) {
+        panel.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
   });
 
-  const amountInput = widget.querySelector('#sim-amount');
-  const monthsInput = widget.querySelector('#sim-months');
-  const amountLabel = widget.querySelector('#sim-amount-value');
-  const monthsLabel = widget.querySelector('#sim-months-value');
-  const resultBox = widget.querySelector('#sim-result');
+  initSavingsSimulator();
+  initCreditSimulator();
+  initBudgetSimulator();
+}
+
+function initSavingsSimulator() {
+  const panel = document.querySelector('[data-simulator-panel="ahorro"]');
+  if (!panel) return;
+
+  const amountInput = panel.querySelector('#sim-amount');
+  const monthsInput = panel.querySelector('#sim-months');
+  const amountLabel = panel.querySelector('#sim-amount-value');
+  const monthsLabel = panel.querySelector('#sim-months-value');
+  const resultBox = panel.querySelector('#sim-result');
 
   const TAE = 0.028; // 2,80% TAE
 
@@ -211,9 +234,67 @@ function initSimulator() {
       ' meses, tendrías aproximadamente ' + Math.round(balance).toLocaleString('es-ES') + ' €';
   }
 
-  [amountInput, monthsInput].forEach(input => {
-    if (input) input.addEventListener('input', calculate);
-  });
+  [amountInput, monthsInput].forEach(input => input.addEventListener('input', calculate));
+  calculate();
+}
+
+/* Simulador de crédito: cuota mensual por amortización francesa */
+function initCreditSimulator() {
+  const panel = document.querySelector('[data-simulator-panel="credito"]');
+  if (!panel) return;
+
+  const amountInput = panel.querySelector('#credit-amount');
+  const monthsInput = panel.querySelector('#credit-months');
+  const amountLabel = panel.querySelector('#credit-amount-value');
+  const monthsLabel = panel.querySelector('#credit-months-value');
+  const resultBox = panel.querySelector('#credit-result');
+
+  const TAE = 0.069; // 6,90% TAE orientativa
+
+  function calculate() {
+    const principal = Number(amountInput.value);
+    const months = Number(monthsInput.value);
+    amountLabel.textContent = principal.toLocaleString('es-ES') + ' €';
+    monthsLabel.textContent = months + ' meses';
+
+    const monthlyRate = TAE / 12;
+    const installment = principal * monthlyRate / (1 - Math.pow(1 + monthlyRate, -months));
+    const total = installment * months;
+    const interest = total - principal;
+
+    resultBox.innerHTML = 'Cuota mensual estimada: <strong>' + Math.round(installment).toLocaleString('es-ES') + ' €</strong><br>' +
+      'Total a devolver: ' + Math.round(total).toLocaleString('es-ES') + ' € (intereses: ' +
+      Math.round(interest).toLocaleString('es-ES') + ' €)';
+  }
+
+  [amountInput, monthsInput].forEach(input => input.addEventListener('input', calculate));
+  calculate();
+}
+
+/* Simulador de billetera: reparto de presupuesto mensual (regla 50/30/20) */
+function initBudgetSimulator() {
+  const panel = document.querySelector('[data-simulator-panel="billetera"]');
+  if (!panel) return;
+
+  const incomeInput = panel.querySelector('#budget-income');
+  const incomeLabel = panel.querySelector('#budget-income-value');
+  const breakdown = panel.querySelector('#budget-breakdown');
+
+  function calculate() {
+    const income = Number(incomeInput.value);
+    incomeLabel.textContent = income.toLocaleString('es-ES') + ' €';
+
+    const necesidades = Math.round(income * 0.5);
+    const deseos = Math.round(income * 0.3);
+    const ahorro = Math.round(income * 0.2);
+
+    breakdown.innerHTML =
+      '<div class="budget-row"><span class="budget-row-label">Necesidades <small>(50%)</small></span><span class="budget-row-value">' + necesidades.toLocaleString('es-ES') + ' €</span></div>' +
+      '<div class="budget-row"><span class="budget-row-label">Deseos <small>(30%)</small></span><span class="budget-row-value">' + deseos.toLocaleString('es-ES') + ' €</span></div>' +
+      '<div class="budget-row"><span class="budget-row-label">Ahorro <small>(20%)</small></span><span class="budget-row-value">' + ahorro.toLocaleString('es-ES') + ' €</span></div>';
+  }
+
+  incomeInput.addEventListener('input', calculate);
   calculate();
 }
 
