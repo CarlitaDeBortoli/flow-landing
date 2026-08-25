@@ -14,7 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initClientCounter();
   initCookieConsent();
   initAutoplayVideos();
+  initAppDownloadLinks();
 });
+
+/* ---------- Enlace de descarga: App Store o Google Play según dispositivo ---------- */
+function initAppDownloadLinks() {
+  const links = document.querySelectorAll('[data-app-download]');
+  if (!links.length) return;
+
+  const ua = navigator.userAgent || '';
+  const isIOS = /iphone|ipad|ipod/i.test(ua);
+  const storeUrl = isIOS
+    ? 'https://www.apple.com/app-store/'
+    : 'https://play.google.com/store/apps';
+
+  links.forEach(link => { link.href = storeUrl; });
+}
 
 /* ---------- Fallback de autoplay para videos en loop (hero) ---------- */
 function initAutoplayVideos() {
