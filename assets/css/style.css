@@ -135,6 +135,10 @@ p { margin: 0 0 1em; }
 }
 .site-header.is-scrolled { box-shadow: 0 6px 24px rgba(0,0,0,.18); }
 
+.site-header .container {
+  max-width: 1440px; /* header un poco más ancho que el resto: nav y CTAs se acercan a los bordes, el logo queda más protagonista en el centro */
+}
+
 .header-inner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -167,7 +171,7 @@ p { margin: 0 0 1em; }
 
 .logo-center { justify-self: center; }
 .logo-center img {
-  height: 54px; /* +~28% vs. las 42px anteriores */
+  height: 60px;
   width: auto;
   filter: drop-shadow(0 1px 4px rgba(0,0,0,.35));
 }
