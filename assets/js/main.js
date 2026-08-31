@@ -15,7 +15,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initCookieConsent();
   initAutoplayVideos();
   initAppDownloadLinks();
+  initFooterRegion();
 });
+
+/* ---------- Selector de país y moneda (footer) ---------- */
+function initFooterRegion() {
+  const select = document.getElementById('footer-region-select');
+  if (!select) return;
+
+  const STORAGE_KEY = 'flow_region';
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) select.value = saved;
+  } catch (e) { /* almacenamiento no disponible */ }
+
+  select.addEventListener('change', () => {
+    try {
+      localStorage.setItem(STORAGE_KEY, select.value);
+    } catch (e) { /* almacenamiento no disponible */ }
+  });
+}
 
 /* ---------- Enlace de descarga: App Store o Google Play según dispositivo ---------- */
 function initAppDownloadLinks() {

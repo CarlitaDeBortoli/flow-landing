@@ -822,16 +822,18 @@ section { padding: 100px 0; }
   border-bottom: 1px solid var(--color-border);
 }
 .course-card {
-  padding: 44px 32px;
+  padding: 36px 28px;
   border-right: 1px solid var(--color-border);
 }
 .course-card:last-child { border-right: none; }
 .course-card img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  max-width: 300px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-lg);
-  margin-bottom: 24px;
+  margin: 0 auto 22px;
   box-shadow: 0 16px 40px rgba(97,47,161,.12);
 }
 .course-card h3 { color: var(--color-primary); font-size: 1.25rem; margin-bottom: 6px; }
@@ -1645,3 +1647,21 @@ section { padding: 100px 0; }
 .trust-badges { list-style: none; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin: 36px 0 0; padding: 0; }
 .trust-badges li { font-size: .82rem; color: rgba(255, 255, 255, .65); padding-left: 20px; position: relative; }
 .trust-badges li::before { content: '✓'; position: absolute; left: 0; color: var(--color-cta); font-weight: 700; }
+
+/* -----------------------------------------
+   Footer — selector de país y moneda
+----------------------------------------- */
+.footer-bottom-info { display: flex; flex-direction: column; gap: 6px; }
+.footer-region { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.footer-region-icon { font-size: 1rem; }
+.footer-region select {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .8rem;
+  color: var(--color-text);
+  background: #fff;
+  cursor: pointer;
+}
+.footer-region select:focus { outline: none; border-color: var(--color-secondary); }
