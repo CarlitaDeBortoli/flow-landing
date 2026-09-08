@@ -254,6 +254,124 @@
       </div>
     </section>
 
+    <!-- ============ LO PRÓXIMO EN FLOW (roadmap, en desarrollo) ============ -->
+    <section class="upcoming-section" id="proximamente">
+      <div class="container">
+
+        <div class="upcoming-header anim-fade">
+          <span class="eyebrow-tag">Lo próximo en Flow</span>
+          <h2 class="section-title upcoming-title">Esto es lo que estamos construyendo para que ahorrar deje de ser difícil</h2>
+        </div>
+
+        <div class="upcoming-grid">
+
+          <!-- Bloque 1: Reto/ranking de ahorro -->
+          <article class="upcoming-card anim-fade">
+            <img src="assets/images/upcoming-ranking.jpg" alt="Grupo de amigos mirando el móvil y riéndose" class="upcoming-card-cover" loading="lazy">
+            <div class="upcoming-card-body">
+              <div class="upcoming-card-head">
+                <span class="upcoming-badge">Próximamente</span>
+                <h3>Compite por ahorrar, no por gastar</h3>
+                <p>Un ranking semanal o mensual entre amigos o familia. Mide el % ahorrado, invertido o los cursos de finanzas completados, siempre en porcentaje y nunca en cifras absolutas, para que sea justo entre personas con distintos ingresos.</p>
+              </div>
+
+              <div class="leaderboard-mock">
+                <div class="leaderboard-toggle" data-leaderboard-toggle>
+                  <button type="button" class="is-active" data-range="semana">Semana</button>
+                  <button type="button" data-range="mes">Mes</button>
+                </div>
+                <ul class="leaderboard-list">
+                  <li>
+                    <span class="lb-avatar" style="background:#885BFD;" aria-hidden="true">S</span>
+                    <div class="lb-info">
+                      <span class="lb-name">Sofía <span class="lb-streak">🔥 racha de 4</span></span>
+                      <div class="lb-bar"><span style="width:82%;"></span></div>
+                    </div>
+                    <span class="lb-pct">82%</span>
+                  </li>
+                  <li>
+                    <span class="lb-avatar" style="background:#4fc4cf;" aria-hidden="true">H</span>
+                    <div class="lb-info">
+                      <span class="lb-name">Héctor <span class="lb-streak"></span></span>
+                      <div class="lb-bar"><span style="width:64%;"></span></div>
+                    </div>
+                    <span class="lb-pct">64%</span>
+                  </li>
+                  <li>
+                    <span class="lb-avatar" style="background:#612FA1;" aria-hidden="true">M</span>
+                    <div class="lb-info">
+                      <span class="lb-name">Martina <span class="lb-streak">🏅 medalla</span></span>
+                      <div class="lb-bar"><span style="width:51%;"></span></div>
+                    </div>
+                    <span class="lb-pct">51%</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bloque 2: Descuentos automáticos con marcas -->
+          <article class="upcoming-card anim-fade">
+            <img src="assets/images/upcoming-descuentos.jpg" alt="Grupo de amigos mirando ropa en una tienda" class="upcoming-card-cover" loading="lazy">
+            <div class="upcoming-card-body">
+              <div class="upcoming-card-head">
+                <span class="upcoming-badge">Próximamente</span>
+                <h3>Descuentos en las marcas que ya usas</h3>
+                <p>Cashback automático al pagar con tu tarjeta Flow en marcas para crear, moverte, entrenar, encontrar piso o decorar tu casa.</p>
+              </div>
+
+              <div class="brand-chips">
+                <span class="brand-chip"><img src="assets/images/brand-canva.png" alt="Canva" class="brand-chip-logo brand-chip-logo--wide"><em>40%</em></span>
+                <span class="brand-chip"><img src="assets/images/brand-claude.svg" alt="Claude" class="brand-chip-logo"><em>35%</em></span>
+                <span class="brand-chip"><img src="assets/images/brand-nike.svg" alt="Nike" class="brand-chip-logo"><em>15%</em></span>
+                <span class="brand-chip"><img src="assets/images/brand-decathlon.png" alt="Decathlon" class="brand-chip-logo brand-chip-logo--wide"><em>15%</em></span>
+                <span class="brand-chip">Idealista <em>5%</em></span>
+                <span class="brand-chip"><img src="assets/images/brand-ikea.png" alt="IKEA" class="brand-chip-logo brand-chip-logo--badge"><em>20%</em></span>
+              </div>
+              <p class="upcoming-legal">Los nombres de marca son solo referencia de diseño y no implican un acuerdo comercial cerrado. Los porcentajes son orientativos y los logos oficiales, si corresponde, solo se publicarán con partnership confirmado.</p>
+            </div>
+          </article>
+
+          <!-- Bloque 3: Fondo de emergencia automático -->
+          <article class="upcoming-card anim-fade">
+            <img src="assets/images/upcoming-fondo-emergencia.jpg" alt="Chica sonriendo con el móvil y la tarjeta Flow en la mano" class="upcoming-card-cover" loading="lazy">
+            <div class="upcoming-card-body">
+              <div class="upcoming-card-head">
+                <span class="upcoming-badge">Próximamente</span>
+                <h3>Tu fondo de emergencia propio</h3>
+                <p>Una cuenta separada de tu saldo de débito diario. Eliges qué % de tu nómina, o de otra cuenta, se aparta solo cada vez que entra el dinero. Lo pausas o ajustas cuando quieras.</p>
+              </div>
+
+              <div class="fund-mock">
+                <div class="fund-balances">
+                  <div class="fund-balance">
+                    <span class="fund-balance-label">Débito diario</span>
+                    <span class="fund-balance-value" id="fund-debit-value">1.275 €</span>
+                  </div>
+                  <div class="fund-balance fund-balance--saving">
+                    <span class="fund-balance-label">Fondo de emergencia</span>
+                    <span class="fund-balance-value" id="fund-saving-value">225 €</span>
+                  </div>
+                </div>
+                <div class="fund-slider-field">
+                  <label for="fund-pct">Apartar <span id="fund-pct-value">15%</span> de tu nómina</label>
+                  <input type="range" id="fund-pct" min="0" max="30" step="1" value="15">
+                </div>
+                <p class="fund-source">Simulación sobre una nómina de referencia de 1.500 €. Origen: <strong>Nómina</strong>.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="upcoming-closing anim-fade">
+          <p class="upcoming-question">¿Cuál te gustaría probar primero?</p>
+          <a href="#" class="btn btn-cta btn-cta-lg" data-waitlist-cta>Avísame cuando esté disponible</a>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ============ FAQ ============ -->
     <section class="faq-section" id="faq">
       <div class="container">

@@ -16,7 +16,64 @@ document.addEventListener('DOMContentLoaded', () => {
   initAutoplayVideos();
   initAppDownloadLinks();
   initFooterRegion();
+  initUpcomingFeatures();
 });
+
+/* ---------- Lo próximo en Flow: toggle leaderboard + simulador fondo de emergencia ---------- */
+function initUpcomingFeatures() {
+  const toggle = document.querySelector('[data-leaderboard-toggle]');
+  if (toggle) {
+    const buttons = toggle.querySelectorAll('button');
+    const weekData = [
+      { name: 'Sofía', initial: 'S', color: '#885BFD', streak: '🔥 racha de 4', pct: 82 },
+      { name: 'Héctor', initial: 'H', color: '#4fc4cf', streak: '', pct: 64 },
+      { name: 'Martina', initial: 'M', color: '#612FA1', streak: '🏅 medalla', pct: 51 },
+    ];
+    const monthData = [
+      { name: 'Héctor', initial: 'H', color: '#4fc4cf', streak: '🔥 racha de 3', pct: 74 },
+      { name: 'Martina', initial: 'M', color: '#612FA1', streak: '🏅 medalla', pct: 68 },
+      { name: 'Sofía', initial: 'S', color: '#885BFD', streak: '', pct: 59 },
+    ];
+    const items = toggle.parentElement.querySelectorAll('.leaderboard-list li');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const data = btn.dataset.range === 'mes' ? monthData : weekData;
+        items.forEach((li, i) => {
+          const d = data[i];
+          if (!d) return;
+          li.querySelector('.lb-name').firstChild.textContent = d.name + ' ';
+          const streakEl = li.querySelector('.lb-streak');
+          if (streakEl) streakEl.textContent = d.streak;
+          li.querySelector('.lb-bar span').style.width = d.pct + '%';
+          li.querySelector('.lb-pct').textContent = d.pct + '%';
+          const avatarEl = li.querySelector('.lb-avatar');
+          avatarEl.textContent = d.initial;
+          avatarEl.style.background = d.color;
+        });
+      });
+    });
+  }
+
+  const fundSlider = document.getElementById('fund-pct');
+  if (fundSlider) {
+    const REFERENCE_SALARY = 1500;
+    const pctValue = document.getElementById('fund-pct-value');
+    const debitValue = document.getElementById('fund-debit-value');
+    const savingValue = document.getElementById('fund-saving-value');
+
+    fundSlider.addEventListener('input', () => {
+      const pct = Number(fundSlider.value);
+      const saving = Math.round(REFERENCE_SALARY * (pct / 100));
+      const debit = REFERENCE_SALARY - saving;
+      pctValue.textContent = pct + '%';
+      savingValue.textContent = saving.toLocaleString('es-ES') + ' €';
+      debitValue.textContent = debit.toLocaleString('es-ES') + ' €';
+    });
+  }
+}
 
 /* ---------- Selector de país y moneda (footer) ---------- */
 function initFooterRegion() {
